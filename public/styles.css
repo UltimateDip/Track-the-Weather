@@ -1,0 +1,6 @@
+.weatherCard {
+    margin: 1%;
+    width: 23%;
+    float: left;
+    border : 'dark'
+}
