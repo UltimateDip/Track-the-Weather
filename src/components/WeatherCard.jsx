@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 
 export default function weatherCard(props) {
     const { name, temp, description,icon, windSpeed } = props.place;
-    console.log(icon);
     return (
         <Card className='weatherCard'>
             {/* <Card.Img variant="top" src="http://openweathermap.org/img/wn/10d@2x.png?text=Image cap" /> */}

@@ -5,8 +5,8 @@ import Header from './components/Header';
 import WeatherCard from './components/WeatherCard';
 
 function App() {
-  const key = "3537bf9694b5689aded8365d400f8e48";
-
+  const key = process.env.REACT_APP_API_KEY;
+  console.log("Need to ther api key manually for now");
   const [places, setPlaces] = useState([]);
 
   function addPlace(cityName) {
@@ -15,7 +15,7 @@ function App() {
 
     axios.get(url).then((response) => {
       // data we get from api
-      console.log(response.data);
+      // console.log(response.data);
 
       setPlaces(prev => [...prev, {
         name: response.data.name,
@@ -28,9 +28,9 @@ function App() {
   }
 
   function deletePlace(id) {
-    setPlaces(prev=>{
-      return prev.filter(function(ele,idx){
-        return idx!==id;
+    setPlaces(prev => {
+      return prev.filter(function (ele, idx) {
+        return idx !== id;
       })
     })
   }
@@ -39,11 +39,11 @@ function App() {
     <div>
       <Header addPlace={addPlace} />
       {places.length > 0 ? places.map((place, idx) => {
-        return <WeatherCard 
-        key={idx} 
-        place={place} 
-        id = {idx}
-        deletePlace={deletePlace}/>
+        return <WeatherCard
+          key={idx}
+          place={place}
+          id={idx}
+          deletePlace={deletePlace} />
       }) : null}
     </div>
   );
